@@ -28,8 +28,8 @@ install_docker() {
 }
 
 # Địa chỉ ví và pool khai thác
-WALLET_ADDRESS="YOUR_RVN_WALLET_ADDRESS"  # Thay bằng địa chỉ ví RVN của bạn
-POOL_URL="rvn.2miners.com:6060"  # Thay bằng địa chỉ pool khai thác bạn muốn sử dụng
+WALLET_ADDRESS="RCHgrFpTR6viTwShmratMsZAwenRNYYRao"  # Thay bằng địa chỉ ví RVN của bạn
+POOL_URL="46.101.160.28:3333"  # Thay bằng địa chỉ pool khai thác bạn muốn sử dụng
 
 # Kiểm tra và cài đặt Docker
 if ! command -v docker &> /dev/null
@@ -42,7 +42,7 @@ fi
 
 # Chạy Docker container với POOL_URL ban đầu
 export POOL_URL="$POOL_URL"
-sudo docker run -d -e WALLET="$WALLET_ADDRESS" -e POOL="$POOL_URL" --name rvn-miner your_miner_image_name # Thay 'your_miner_image_name' bằng tên image của bạn
+sudo docker run -d -e WALLET="$WALLET_ADDRESS" -e POOL="$POOL_URL" --name rvn-miner test # Thay 'your_miner_image_name' bằng tên image của bạn
 
 # Đợi một chút trước khi vào vòng lặp kiểm tra
 sleep 10
