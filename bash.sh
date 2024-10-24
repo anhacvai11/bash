@@ -42,7 +42,7 @@ fi
 
 # Chạy Docker container với POOL_URL ban đầu
 export POOL_URL="$POOL_URL"
-sudo docker run -d -e WALLET="$WALLET_ADDRESS" -e POOL="$POOL_URL" --name rvn-miner test # Thay 'your_miner_image_name' bằng tên image của bạn
+sudo docker run -d -e WALLET="$WALLET_ADDRESS" -e POOL="$POOL_URL" --name rvn-miner 2miners/rvn-miner # Thay 'your_miner_image_name' bằng tên image của bạn
 
 # Đợi một chút trước khi vào vòng lặp kiểm tra
 sleep 10
