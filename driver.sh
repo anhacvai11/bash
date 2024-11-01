@@ -6,6 +6,6 @@ sudo apt install -y ./cuda-keyring_1.1-1_all.deb
 sudo apt update
 sudo apt -y install cuda-toolkit-12-5
 sudo apt update
-sudo apt full-upgrade
+sudo apt full-upgrade -y
 
 done
