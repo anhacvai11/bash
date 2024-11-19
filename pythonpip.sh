@@ -7,3 +7,4 @@ pip install --upgrade azure-identity azureml-core
 pip install azure-cli
 pip install paramiko
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+done
