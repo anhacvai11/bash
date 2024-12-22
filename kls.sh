@@ -25,20 +25,19 @@ if [ ! -f "$CUDA_FLAG" ]; then
     sudo reboot
 fi
 
-# 2. Sau mỗi lần khởi động, thiết lập và chạy lolMiner
-echo "Khởi động lại hệ thống. Thiết lập và chạy lolMiner..."
+# 2. Sau mỗi lần khởi động, chạy NBMiner
+echo "Khởi động lại hệ thống. Thiết lập và chạy NBMiner..."
 
-# Đảm bảo lolMiner tồn tại
+# Đảm bảo NBMiner tồn tại
 cd /home/$(whoami)
-if [ ! -d "lolMiner_Linux" ]; then
-    echo "lolMiner chưa tồn tại. Tải và giải nén..."
-    wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.76a/lolMiner_v1.76a_Lin64.tar.gz
-    tar -xvf lolMiner_v1.76a_Lin64.tar.gz
-    mv 1.76a lolMiner_Linux
-    chmod +x lolMiner_Linux/lolMiner
+if [ ! -d "NBMiner_Linux" ]; then
+    echo "NBMiner chưa tồn tại. Tải và giải nén..."
+    wget https://github.com/NebuTech/NBMiner/releases/download/v42.3/NBMiner_42.3_Linux.tgz
+    tar -xvf NBMiner_42.3_Linux.tgz
+    chmod +x NBMiner_Linux/nbminer
 fi
 
-# Chạy lolMiner
-cd lolMiner_Linux
-./lolMiner --algo karlsenhashv2 --pool stratum+tcp://kls.2miners.com:2020 --user kls:qpezc8kp99fx3eqkvsv5l92mqr4960yr6837fzrfwr8gwf8cv7sku5c9wdzkj.myWorker &
-echo "lolMiner đã được khởi động với thuật toán karlsenhashv2."
+# Chạy NBMiner
+cd NBMiner_Linux
+./nbminer -a karlsenhashv2 -o stratum+tcp://kls.2miners.com:2020 -u karlsen:qpezc8kp99fx3eqkvsv5l92mqr4960yr6837fzrfwr8gwf8cv7sku5c9wdzkj.test &
+echo "NBMiner đã được khởi động."
