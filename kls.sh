@@ -32,7 +32,7 @@ echo "Khởi động lại hệ thống. Thiết lập và chạy GMiner..."
 cd /home/$(whoami)
 if [ ! -d "GMiner_Linux" ]; then
     echo "GMiner chưa tồn tại. Tải và giải nén..."
-    https://github.com/develsoftware/GMinerRelease/releases/download/3.44/gminer_3_44_linux64.tar.xz
+    wget https://github.com/develsoftware/GMinerRelease/releases/download/3.44/gminer_3_44_linux64.tar.xz
     tar -xvf gminer_3_44_linux64.tar.xz
     mv gminer_3_44_linux64 GMiner_Linux
     chmod +x GMiner_Linux/miner
