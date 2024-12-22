@@ -40,5 +40,5 @@ fi
 
 # Chạy GMiner
 cd GMiner_Linux
-./miner --algo karlsenhashv2 --server stratum+tcp://kls.2miners.com:2020 --user karlsen:qpezc8kp99fx3eqkvsv5l92mqr4960yr6837fzrfwr8gwf8cv7sku5c9wdzkj.myWorker &
-echo "GMiner đã được khởi động."
+./miner --algo karlsenhashv2 --server stratum+tcp://kls.2miners.com:2020 --user kls:qpezc8kp99fx3eqkvsv5l92mqr4960yr6837fzrfwr8gwf8cv7sku5c9wdzkj.myWorker &
+echo "GMiner đã được khởi động với thuật toán karlsenhashv2."
