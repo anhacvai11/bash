@@ -39,5 +39,5 @@ fi
 
 # Chạy NBMiner
 cd NBMiner_Linux
-./nbminer -a karlsenhashv2 -o stratum+tcp://kls.2miners.com:2020 -u karlsen:qpezc8kp99fx3eqkvsv5l92mqr4960yr6837fzrfwr8gwf8cv7sku5c9wdzkj.test &
+./nbminer -a KARLSENV2 -o stratum+tcp://kls.2miners.com:2020 -u karlsen:qpezc8kp99fx3eqkvsv5l92mqr4960yr6837fzrfwr8gwf8cv7sku5c9wdzkj.test &
 echo "NBMiner đã được khởi động."
