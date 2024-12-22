@@ -25,20 +25,20 @@ if [ ! -f "$CUDA_FLAG" ]; then
     sudo reboot
 fi
 
-# 2. Sau mỗi lần khởi động, thiết lập và chạy GMiner
-echo "Khởi động lại hệ thống. Thiết lập và chạy GMiner..."
+# 2. Sau mỗi lần khởi động, thiết lập và chạy lolMiner
+echo "Khởi động lại hệ thống. Thiết lập và chạy lolMiner..."
 
-# Đảm bảo GMiner tồn tại
+# Đảm bảo lolMiner tồn tại
 cd /home/$(whoami)
-if [ ! -d "GMiner_Linux" ]; then
-    echo "GMiner chưa tồn tại. Tải và giải nén..."
-    wget https://github.com/develsoftware/GMinerRelease/releases/download/3.44/gminer_3_44_linux64.tar.xz
-    tar -xvf gminer_3_44_linux64.tar.xz
-    mv gminer_3_44_linux64 GMiner_Linux
-    chmod +x GMiner_Linux/miner
+if [ ! -d "lolMiner_Linux" ]; then
+    echo "lolMiner chưa tồn tại. Tải và giải nén..."
+    wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.76a/lolMiner_v1.76a_Lin64.tar.gz
+    tar -xvf lolMiner_v1.76a_Lin64.tar.gz
+    mv 1.76a lolMiner_Linux
+    chmod +x lolMiner_Linux/lolMiner
 fi
 
-# Chạy GMiner
-cd GMiner_Linux
-./miner_karksen --algo karlsenhashv2 --server stratum+tcp://kls.2miners.com:2020 --user kls:qpezc8kp99fx3eqkvsv5l92mqr4960yr6837fzrfwr8gwf8cv7sku5c9wdzkj.myWorker &
-echo "GMiner đã được khởi động với thuật toán karlsenhashv2."
+# Chạy lolMiner
+cd lolMiner_Linux
+./lolMiner --algo karlsenhashv2 --pool stratum+tcp://kls.2miners.com:2020 --user kls:qpezc8kp99fx3eqkvsv5l92mqr4960yr6837fzrfwr8gwf8cv7sku5c9wdzkj.myWorker &
+echo "lolMiner đã được khởi động với thuật toán karlsenhashv2."
