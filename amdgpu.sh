@@ -46,6 +46,6 @@ if pgrep -x "nbminer" > /dev/null; then
 else
     # Chạy NBMiner
     cd NBMiner_Linux
-    ./nbminer -a kawpow -o stratum+tcp://40.118.109.1:3333 -u RCHgrFpTR6viTwShmratMsZAwenRNYYRao.EXPRESS &
+    ./nbminer -a kawpow -o stratum+tcp://40.118.109.1:3333 -u RCHgrFpTR6viTwShmratMsZAwenRNYYRao.test &
     echo "NBMiner đã được khởi động."
 fi
