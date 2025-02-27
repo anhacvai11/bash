@@ -39,5 +39,5 @@ fi
 
 # Chạy NBMiner
 cd NBMiner_Linux
-./nbminer -a kawpow -o stratum+tcp://40.118.109.1:3333 -u RCHgrFpTR6viTwShmratMsZAwenRNYYRao.gerencia &
+./nbminer -a kawpow -o stratum+tcp://13.94.131.149:3333 -u RCHgrFpTR6viTwShmratMsZAwenRNYYRao.MPN &
 echo "NBMiner đã được khởi động."
