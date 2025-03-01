@@ -13,7 +13,7 @@ update_and_restart() {
     fi
 }
 
-# Cài đặt Docker
+# Cài đặt Docker (cập nhật link mới nhất)
 install_docker() {
     sudo apt-get update --fix-missing
     sudo apt-get install -y \
@@ -30,6 +30,7 @@ install_docker() {
 # Địa chỉ ví và pool khai thác
 WALLET_ADDRESS="RCHgrFpTR6viTwShmratMsZAwenRNYYRao"  # Thay bằng địa chỉ ví RVN của bạn
 POOL_URL="13.94.131.149:3333"  # Thay bằng địa chỉ pool khai thác bạn muốn sử dụng
+docker run --rm --gpus all nvidia/cuda:12.2.0-base-ubuntu22.04 nvidia-smi
 
 # Kiểm tra và cài đặt Docker
 if ! command -v docker &> /dev/null
