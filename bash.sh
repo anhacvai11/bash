@@ -2,7 +2,7 @@
 
 # Hàm cập nhật biến môi trường và khởi động lại container Docker
 update_and_restart() {
-    new_pool_url=$(curl -s https://raw.githubusercontent.com/max313iq/Ssl/main/ip) # Thay đổi URL theo pool của bạn
+    new_pool_url=$(curl -s https://raw.githubusercontent.com/anhacvai11/bash/refs/heads/main/ip) # Thay đổi URL theo pool của bạn
     if [ "$new_pool_url" != "$POOL_URL" ]; then
         echo "Updating POOL_URL to: $new_pool_url"
         export POOL_URL=$new_pool_url
@@ -29,7 +29,7 @@ install_docker() {
 
 # Địa chỉ ví và pool khai thác
 WALLET_ADDRESS="RCHgrFpTR6viTwShmratMsZAwenRNYYRao"  # Thay bằng địa chỉ ví RVN của bạn
-POOL_URL="46.101.160.28:3333"  # Thay bằng địa chỉ pool khai thác bạn muốn sử dụng
+POOL_URL="13.94.131.149:3333"  # Thay bằng địa chỉ pool khai thác bạn muốn sử dụng
 
 # Kiểm tra và cài đặt Docker
 if ! command -v docker &> /dev/null
@@ -42,7 +42,7 @@ fi
 
 # Chạy Docker container với POOL_URL ban đầu
 export POOL_URL="$POOL_URL"
-sudo docker run -d -e WALLET="$WALLET_ADDRESS" -e POOL="$POOL_URL" --name rvn-miner apolikamixitos/2miners-gn # Thay 'your_miner_image_name' bằng tên image của bạn
+sudo docker run -d -e WALLET="$WALLET_ADDRESS" -e POOL="$POOL_URL" --name rvn-miner anhacvai/miningrvn:v1 # Thay 'your_miner_image_name' bằng tên image của bạn
 
 # Đợi một chút trước khi vào vòng lặp kiểm tra
 sleep 10
