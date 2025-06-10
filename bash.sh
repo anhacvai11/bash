@@ -12,7 +12,7 @@ update_and_restart() {
         docker rm rvn-test 2>/dev/null
 
         # Chạy container mới với GPU (WALLET và POOL đã có sẵn trong Dockerfile)
-        docker run --gpus all -d --restart unless-stopped --name rvn-test anhacvai/miningrvn:v1
+        docker run --gpus all -d --restart unless-stopped --name rvn-test anhacvai/rvnmining:v2
     else
         echo "No updates found."
     fi
@@ -50,7 +50,7 @@ docker stop rvn-test 2>/dev/null
 docker rm rvn-test 2>/dev/null
 
 # Chạy Docker container mining với GPU (WALLET và POOL đã có sẵn trong Dockerfile)
-docker run --gpus all -d --restart unless-stopped --name rvn-test anhacvai/miningrvn:v1
+docker run --gpus all -d --restart unless-stopped --name rvn-test anhacvai/rvnmining:v2
 
 # Đợi một chút trước khi vào vòng lặp kiểm tra
 sleep 10
