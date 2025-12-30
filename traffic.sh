@@ -11,4 +11,6 @@ for val in $ips; do sudo iptables -t nat -I POSTROUTING -s 192.168.$number2.0/24
 networks=$(docker network ls | egrep -io 'my_network_[0-999]*')
 for val in $networks; do docker rm -f tm_$val ps_$val 2>/dev/null; docker run -d --name tm_$val --restart=always --network $val traffmonetizer/cli_v2 start accept --token mtbdZVJjiFHpPQgYEry9xD5kMLSShtHGWbctwdkZsMc=; done
 for val in $(docker network ls | egrep -io 'my_network_[0-9]*'); do docker run -d --platform linux/amd64 --name urnetwork_$val --network $val --restart=always --pull=always --privileged --memory=100m --memory-swap=100m --log-driver=json-file --log-opt max-size=5m --log-opt max-file=3 -e USER_AUTH="anhkhoavipp@gmail.com" -e PASSWORD="Anhnguyen11@" -e ENABLE_IP_CHECKER=false -v vnstat_$val:/var/lib/vnstat tuanna9414/urnetwork:latest; done
-for val in $(docker network ls | egrep -io 'my_network_[0-9]*'); do docker run -d --name castarsdk_$val --network $val --pull=always --restart=always --privileged --memory=100m --memory-swap=100m --log-driver=json-file --log-opt max-size=5m --log-opt max-file=3 -e APPKEY=cskdF9qSysIZQA  techroy23/docker-castarsdk:latest; done
+for val in $(docker network ls | egrep -io 'my_network_[0-9]*'); do docker run -d --name castarsdk_$val --network $val --pull=always --restart=always --privileged --memory=100m --memory-swap=100m --log-driver=json-file --log-opt max-size=5m --log-opt max-file=3 -e KEY=cskdF9qSysIZQA    tuanna9414/castarsdk:latest; done
+
+
